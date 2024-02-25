@@ -20,7 +20,6 @@ const overrides = {
 
 const alchemy = new AlchemyMultichainClient(config, overrides);
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { owner } = req.query;
   if (!owner) return res.status(400).json({ error: `Missing Owner Address` });
