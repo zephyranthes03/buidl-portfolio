@@ -106,7 +106,8 @@ const Page: React.FC = () => {
               <TabsList className="flex items-center justify-center">
                 <TabsTrigger value="links">Links</TabsTrigger>
                 <TabsTrigger value="nfts">NFTs</TabsTrigger>
-                <TabsTrigger value="send">Send</TabsTrigger>
+                <TabsTrigger value="projects">Projects</TabsTrigger>
+                <TabsTrigger value="send">Donate</TabsTrigger>
               </TabsList>
               <TabsContent
                 value="links"
@@ -140,6 +141,19 @@ const Page: React.FC = () => {
                     />
                   );
                 })}
+              </TabsContent>
+              <TabsContent
+                value="projects"
+                className="w-full mt-8 flex flex-col items-center justify-center"
+              >
+                {profile.projects.map((project: any) => (
+                  <LinkCard
+                    key={project.name}
+                    href={project.url}
+                    title={project.name}
+                    image="/LinkDefaultIcon.svg"
+                  />
+                ))}
               </TabsContent>
               <TabsContent value="send">
                 <SendTransaction />

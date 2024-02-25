@@ -14,14 +14,54 @@ export const profile = {
       name: "GitHub",
       url: "https://github.com/Seroxdesign",
       icon: "",
+    },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/sero-346b85202/",
+      icon: "",
+    },
+    {
+      name: "Blog",
+      url: "https://blog.serotonindesigns.com",
+      icon: "",
+    },
+    {
+      name: 'Podcast',
+      url: 'https://open.spotify.com/show/2HfqI2dFN85uLLFwGqEk0d?si=f918a9d9ea6f4d38',
+      icon: ''
     }
   ],
   projects: [
     {
-      name: 'ETH Denver hackathon',
+      name: 'ETH DENVER BUIDL REPO',
       description: 'My work at the ETH Denver hackathon',
       imageUrl: '',
-      url: 'https://blog.serotonindesigns.com'
+      url: 'https://github.com/Seroxdesign/buidl-portfolio'
+    },
+    {
+      name: 'Superfluid',
+      description: '',
+      imageUrl: '',
+      url: 'https://console.superfluid.finance'
+    },
+    {
+      name: 'Tellor',
+      description: '',
+      imageUrl: '',
+      url: 'https://tellor.io'
+    },
+    {
+      name: 'Pokt',
+      description: '',
+      imageUrl: '',
+      url: 'https://pokt.network'
+    },
+    {
+      name: 'Gitcoin',
+      description: '',
+      imageUrl: '',
+      url: 'https://gitcoin.co'
     }
+
   ]
 }

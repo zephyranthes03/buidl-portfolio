@@ -14,9 +14,10 @@ export function SendTransaction() {
 
   return (
     <form onSubmit={submit} className="flex flex-col items-center justify-center space-y-4">
+      <h1 className="text-2xl font-bold">Buy me a coffee!</h1>
       <input name="value" placeholder="0.05 ETH" required className="p-2 border border-gray-300 rounded" />
-      <button type="submit" disabled={isPending} className="p-2 bg-blue-500 text-white rounded disabled:bg-gray-400 disabled:cursor-not-allowed">
-        {isPending ? 'Confirming...' : 'Send'}
+      <button type="submit" disabled={isPending} className="p-2 text-white rounded disabled:bg-gray-400 disabled:cursor-not-allowed bg-purple w-100">
+        {isPending ? 'Confirming...' : 'Donate'}
       </button>
       {hash && <div className="text-gray-500">Transaction Hash: {hash}</div>}
     </form>
