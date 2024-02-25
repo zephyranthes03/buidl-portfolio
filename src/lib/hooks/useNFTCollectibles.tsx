@@ -1,4 +1,9 @@
 import { useEffect, useState } from "react";
+import { isAddress } from "@ethersproject/address";
+import { Alchemy, Network } from "alchemy-sdk";
+import { NextApiRequest, NextApiResponse } from 'next';
+
+import { AlchemyMultichainClient } from "@/lib/alchemy-multichain-client";
 
 type Maybe<T> = T | null;
 
@@ -36,24 +41,38 @@ export const useNFTCollectibles = (
 };
 
 const fetchAlchemyAllData = async (owner: string): Promise<Array<any>> => {
-  let offset = 0;
-  let data: Array<any> = [];
-  let lastData: Array<any> = [];
-  const limit = 50;
-  do {
-    // eslint-disable-next-line no-await-in-loop
-    lastData = await fetchAlchemyData(owner);
-    data = data.concat(lastData);
-    offset += limit;
-  } while (lastData.length > 0);
-  return data;
+  return await fetchAlchemyData(owner)
 };
 
-const fetchAlchemyData = async (owner: string): Promise<Array<any>> => {
-  const res = await fetch(`/api/alchemy?owner=${owner}`);
-  console.log(res, "res")
-  const body = await res.text();
-  const NFTs = JSON.parse(body);
-  if (!NFTs) throw new Error(`Received ${NFTs} assets`);
-  return NFTs;
+const fetchAlchemyData = async (owner: string) => {
+  const mainnetNfts = await alchemy
+  .forNetwork(Network.ETH_MAINNET)
+  .nft.getNftsForOwner(owner as string, { pageSize: 5 })
+
+  const maticNfts = await alchemy
+  .forNetwork(Network.MATIC_MAINNET)
+  .nft.getNftsForOwner(owner as string, { pageSize: 5 });
+
+  const optimismNfts = await alchemy
+  .forNetwork(Network.OPT_MAINNET)
+  .nft.getNftsForOwner(owner as string, { pageSize: 5 });
+  return [{ mainnetNfts, maticNfts, optimismNfts }]
 };
+
+
+
+const config = {
+  apiKey: process.env.NEXT_PUBLIC_ALCHEMY_MAINNET,
+  network: Network.ETH_MAINNET,
+};
+
+const overrides = {
+  [Network.MATIC_MAINNET]: {
+    apiKey: process.env.NEXT_PUBLIC_ALCHEMY_MATIC,
+  },
+  [Network.OPT_MAINNET]: {  
+    apiKey: process.env.NEXT_PUBLIC_ALCHEMY_OPTIMISM,
+  },
+}
+
+const alchemy = new AlchemyMultichainClient(config, overrides);
