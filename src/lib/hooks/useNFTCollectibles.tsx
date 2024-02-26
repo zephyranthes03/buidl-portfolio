@@ -1,9 +1,22 @@
 import { useEffect, useState } from "react";
-import { isAddress } from "@ethersproject/address";
-import { Alchemy, Network } from "alchemy-sdk";
-import { NextApiRequest, NextApiResponse } from 'next';
-
+import { Network } from "alchemy-sdk";
 import { AlchemyMultichainClient } from "@/lib/alchemy-multichain-client";
+
+const config = {
+  apiKey: process.env.NEXT_PUBLIC_ALCHEMY_MAINNET,
+  network: Network.ETH_MAINNET,
+};
+
+const overrides = {
+  [Network.MATIC_MAINNET]: {
+    apiKey: process.env.NEXT_PUBLIC_ALCHEMY_MATIC,
+  },
+  [Network.OPT_MAINNET]: {  
+    apiKey: process.env.NEXT_PUBLIC_ALCHEMY_OPTIMISM,
+  },
+}
+
+const alchemy = new AlchemyMultichainClient(config, overrides);
 
 type Maybe<T> = T | null;
 
@@ -58,21 +71,3 @@ const fetchAlchemyData = async (owner: string) => {
   .nft.getNftsForOwner(owner as string, { pageSize: 5 });
   return [{ mainnetNfts, maticNfts, optimismNfts }]
 };
-
-
-
-const config = {
-  apiKey: process.env.NEXT_PUBLIC_ALCHEMY_MAINNET,
-  network: Network.ETH_MAINNET,
-};
-
-const overrides = {
-  [Network.MATIC_MAINNET]: {
-    apiKey: process.env.NEXT_PUBLIC_ALCHEMY_MATIC,
-  },
-  [Network.OPT_MAINNET]: {  
-    apiKey: process.env.NEXT_PUBLIC_ALCHEMY_OPTIMISM,
-  },
-}
-
-const alchemy = new AlchemyMultichainClient(config, overrides);

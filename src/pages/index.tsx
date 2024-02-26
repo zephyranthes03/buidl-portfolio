@@ -1,6 +1,5 @@
 import React from "react";
 
-import { useParams } from "next/navigation";
 import Wrapper from "@/components/Wrapper";
 import { FadeIn } from "@/components/FadeIn";
 import Image from "next/image";
@@ -47,14 +46,11 @@ function LinkCard({
 }
 
 const Page: React.FC = () => {
-  // Get the address from the router params
-  const router = useParams();
   const {
     loading: nftLoading,
     error: nftError,
     data: nfts,
   } = useNFTCollectibles(profile.address);
-  console.log(nfts, "nfts")
   const processAllNfts = () => {
     let nftData: any = [];
     if (!nfts[0]) return [];
@@ -139,7 +135,7 @@ const Page: React.FC = () => {
                       width={128}
                       height={128}
                     />
-                  );
+                  )
                 })}
               </TabsContent>
               <TabsContent
