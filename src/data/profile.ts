@@ -1,67 +1,45 @@
 export const profile = {
-  name: "Sero",
+  name: "Yongjin Chong",
   role: "Software Engineer",
   bio: "I'm a software engineer that loves building products and teaching others how to do the same.",
   imageUrl: "https://i.imgur.com/2m4XIqN.png",
-  address: "0xc0163E58648b247c143023CFB26C2BAA42C9d9A9",
+  address: "0x2A622c78465A622CEbBa23D1C1f56E42608a4a0B",
   links: [
     {
       name: "Twitter",
-      url: "https://twitter.com/seroxdesigns",
+      url: "https://twitter.com/realizer25",
       icon: "twitter",
     },
     {
       name: "GitHub",
-      url: "https://github.com/Seroxdesign",
+      url: "https://github.com/zephyranthes03",
       icon: "",
     },
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/sero-346b85202/",
+      url: "https://www.linkedin.com/in/yongjin-chong-482610146//",
       icon: "",
     },
-    {
-      name: "Blog",
-      url: "https://blog.serotonindesigns.com",
-      icon: "",
-    },
-    {
-      name: 'Podcast',
-      url: 'https://open.spotify.com/show/2HfqI2dFN85uLLFwGqEk0d?si=f918a9d9ea6f4d38',
-      icon: ''
-    }
   ],
   projects: [
     {
       name: 'ETH DENVER BUIDL REPO',
       description: 'My work at the ETH Denver hackathon',
       imageUrl: '',
-      url: 'https://github.com/Seroxdesign/buidl-portfolio'
-    },
-    {
-      name: 'Superfluid',
-      description: '',
-      imageUrl: '',
-      url: 'https://console.superfluid.finance'
-    },
-    {
-      name: 'Tellor',
-      description: '',
-      imageUrl: '',
-      url: 'https://tellor.io'
-    },
-    {
-      name: 'Pokt',
-      description: '',
-      imageUrl: '',
-      url: 'https://pokt.network'
+      url: 'https://github.com/zephyranthes03/buidl-portfolio'
     },
     {
       name: 'Gitcoin',
       description: '',
       imageUrl: '',
       url: 'https://gitcoin.co'
-    }
+    },
+    {
+      name: 'FTS',
+      description: 'Skin disease detection app',
+      imageUrl: '',
+      url: 'http://imgroo.kr:8003'
+    },
 
   ]
 }
