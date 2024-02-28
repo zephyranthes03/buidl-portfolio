@@ -10,17 +10,20 @@ const config = createConfig(
   getDefaultConfig({
     // Your dApps chains
     
-    // chains: [mainnet],
-    // [mainnet.id]: http(
-    //   `https://eth-mainnet.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_ALCHEMY_MAINNET}`,
-    // ),
-  chains: [arbitrumSepolia],
+    chains: [mainnet],
     transports: {
       // RPC URL for each chain
-      [arbitrumSepolia.id]: http(
-        `https://arbitrum-sepolia.blockpi.network/v1/rpc/public`
+      [mainnet.id]: http(
+        `https://eth-mainnet.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_ALCHEMY_MAINNET}`,
       ),
     },
+    // chains: [arbitrumSepolia],
+    // transports: {
+    //   // RPC URL for each chain
+    //   [arbitrumSepolia.id]: http(
+    //     `https://arbitrum-sepolia.blockpi.network/v1/rpc/public`
+    //   ),
+    // },
 
     // Required API Keys
     walletConnectProjectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '',

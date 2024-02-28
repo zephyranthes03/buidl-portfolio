@@ -117,7 +117,7 @@ export function SendTransaction() {
       className="flex flex-col items-center justify-center space-y-4"
     >
       <h1 className="text-2xl font-bold">Buy me a coffee!</h1>
-      <div>Owner of ID 0: {ownerOf?.toString()}</div>
+      {/* <div>Owner of ID 0: {ownerOf?.toString()}</div> */}
       <input
         name="value"
         placeholder="0.05 ETH"
